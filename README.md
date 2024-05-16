@@ -10,6 +10,7 @@ data.head()
 ```
  
  ## Конечный код
+ ```python
 # Исходные данные
 import random
 lst = ['robot'] * 10
