@@ -9,3 +9,16 @@ data = pd.DataFrame({'whoAmI':lst})
 data.head()
 ```
  
+ ## Конечный код
+ ```python
+categories = data['whoAmI'].unique()
+one_hot_encoded = pd.DataFrame(0, index=data.index, columns=categories)
+
+for category in categories:
+    one_hot_encoded[category] = (data['whoAmI'] == category).astype(int)
+
+data = pd.concat([data, one_hot_encoded], axis=1)
+data.drop('whoAmI', axis=1, inplace=True)  # Удалить исходный столбец 'whoAmI'
+
+data.head()
+ ```
